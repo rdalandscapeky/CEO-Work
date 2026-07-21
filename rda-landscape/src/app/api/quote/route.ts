@@ -74,7 +74,7 @@ export async function POST(request: NextRequest) {
   const formData = await request.formData();
 
   // Honeypot — bots fill every field, real users never see this one.
-  if (String(formData.get("website") ?? "").trim().length > 0) {
+  if (String(formData.get("bot-field") ?? "").trim().length > 0) {
     return NextResponse.json({ ok: true });
   }
 
@@ -169,33 +169,9 @@ export async function POST(request: NextRequest) {
     accessDifficulty: measurements.accessDifficulty as AccessDifficulty,
   });
 
-  if (process.env.WEB3FORMS_ACCESS_KEY) {
-    const leadForm = new FormData();
-    leadForm.append("access_key", process.env.WEB3FORMS_ACCESS_KEY);
-    leadForm.append("subject", `New instant-quote lead: ${name}`);
-    leadForm.append("from_name", "RDA Landscape instant quote tool");
-    leadForm.append("name", name);
-    leadForm.append("email", email || "not provided");
-    leadForm.append("phone", phone || "not provided");
-    leadForm.append("services", services.join(", "));
-    leadForm.append(
-      "estimate",
-      `$${estimate.low}–$${estimate.high} (${estimate.breakdown
-        .map((b) => `${b.service}: $${b.low}–$${b.high}`)
-        .join("; ")})`,
-    );
-    leadForm.append("ai_notes", measurements.notes);
-    images.forEach((image, i) => leadForm.append(`photo_${i + 1}`, image, image.name));
-
-    try {
-      await fetch("https://api.web3forms.com/submit", {
-        method: "POST",
-        body: leadForm,
-      });
-    } catch {
-      // Don't fail the customer's estimate if the lead email fails to send.
-    }
-  }
+  // Lead capture (name/email/phone/photos) happens client-side via a
+  // separate Netlify Forms submission — see quote-tool.tsx and
+  // NetlifyFormDetector. This route only needs to return the estimate.
 
   return NextResponse.json({
     estimate,

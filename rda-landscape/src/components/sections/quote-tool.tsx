@@ -82,9 +82,36 @@ export function QuoteTool() {
       }
       setResult(data);
       setStatus("idle");
+      void submitToNetlifyForms(data);
     } catch {
       setError("Network error — please try again or call us directly.");
       setStatus("error");
+    }
+  }
+
+  // Netlify Forms only accepts submissions that match a form it detected in
+  // the static HTML at build time (see NetlifyFormDetector) — this is a
+  // separate request from /api/quote, which just runs the AI analysis.
+  async function submitToNetlifyForms(data: ApiResponse) {
+    const netlifyData = new FormData();
+    netlifyData.append("form-name", "quote-request");
+    netlifyData.append("name", name);
+    netlifyData.append("email", email);
+    netlifyData.append("phone", phone);
+    netlifyData.append("services", selectedServices.join(", "));
+    if (data.estimate) {
+      netlifyData.append(
+        "estimate",
+        `$${data.estimate.low}–$${data.estimate.high}`,
+      );
+    }
+    files.forEach((file) => netlifyData.append("photos", file));
+
+    try {
+      await fetch("/", { method: "POST", body: netlifyData });
+    } catch {
+      // Lead was already captured by /api/quote's response to the user;
+      // losing the Netlify Forms copy isn't worth failing the request over.
     }
   }
 
@@ -108,7 +135,7 @@ export function QuoteTool() {
               {/* Honeypot — hidden from real users, bots tend to fill every field */}
               <input
                 type="text"
-                name="website"
+                name="bot-field"
                 tabIndex={-1}
                 autoComplete="off"
                 className="hidden"

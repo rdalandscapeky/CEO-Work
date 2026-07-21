@@ -6,6 +6,7 @@ import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 import { Analytics } from "@/components/analytics";
 import { LocalBusinessSchema } from "@/components/local-business-schema";
+import { NetlifyFormDetector } from "@/components/netlify-form-detector";
 import { siteConfig } from "@/lib/site-config";
 
 const geistSans = Geist({
@@ -57,6 +58,7 @@ export default function RootLayout({
     >
       <body className="min-h-full flex flex-col">
         <LocalBusinessSchema />
+        <NetlifyFormDetector />
         <Header />
         <main className="flex flex-1 flex-col">{children}</main>
         <Footer />
