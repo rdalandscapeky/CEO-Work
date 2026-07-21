@@ -1,0 +1,189 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * Brand primitives, read off the RDA Landscape logo (pine-tree forest
+ * green, moss-green hillside, white wordmark, antique-gold star/phone
+ * text, black canvas). Swap these five if a source logo file lands with
+ * different exact values — everything below derives from them.
+ */
+:root {
+  --brand-forest: #1f3d2b;
+  --brand-forest-light: #2f5940;
+  --brand-sage: #6b8e4e;
+  --brand-gold: #bf9b4e;
+  --brand-gold-light: #d4b168;
+  --brand-ink: #10140f;
+  --brand-ivory: #faf8f3;
+}
+
+:root {
+  --radius: 0.625rem;
+  --background: var(--brand-ivory);
+  --foreground: #14231a;
+  --card: #ffffff;
+  --card-foreground: #14231a;
+  --popover: #ffffff;
+  --popover-foreground: #14231a;
+  --primary: var(--brand-forest);
+  --primary-foreground: #ffffff;
+  --secondary: var(--brand-ink);
+  --secondary-foreground: #ffffff;
+  --muted: #f3f0e6;
+  --muted-foreground: #5b6b5e;
+  --accent: var(--brand-gold);
+  --accent-foreground: var(--brand-ink);
+  --destructive: #b3261e;
+  --border: #e3dfd2;
+  --input: #e3dfd2;
+  --ring: var(--brand-forest);
+  --chart-1: var(--brand-forest);
+  --chart-2: var(--brand-sage);
+  --chart-3: var(--brand-gold);
+  --chart-4: var(--brand-forest-light);
+  --chart-5: var(--brand-ink);
+  --sidebar: var(--brand-ink);
+  --sidebar-foreground: #ffffff;
+  --sidebar-primary: var(--brand-gold);
+  --sidebar-primary-foreground: var(--brand-ink);
+  --sidebar-accent: #1c2118;
+  --sidebar-accent-foreground: #ffffff;
+  --sidebar-border: rgba(255, 255, 255, 0.1);
+  --sidebar-ring: var(--brand-gold);
+}
+
+.dark {
+  --background: #12160f;
+  --foreground: var(--brand-ivory);
+  --card: #181d16;
+  --card-foreground: var(--brand-ivory);
+  --popover: #181d16;
+  --popover-foreground: var(--brand-ivory);
+  --primary: var(--brand-forest-light);
+  --primary-foreground: #ffffff;
+  --secondary: #232922;
+  --secondary-foreground: var(--brand-ivory);
+  --muted: #232922;
+  --muted-foreground: #a7b0a0;
+  --accent: var(--brand-gold-light);
+  --accent-foreground: var(--brand-ink);
+  --destructive: #e5534b;
+  --border: rgba(255, 255, 255, 0.12);
+  --input: rgba(255, 255, 255, 0.15);
+  --ring: var(--brand-gold-light);
+  --chart-1: var(--brand-forest-light);
+  --chart-2: var(--brand-sage);
+  --chart-3: var(--brand-gold-light);
+  --chart-4: #ffffff;
+  --chart-5: var(--brand-sage);
+  --sidebar: #0d100c;
+  --sidebar-foreground: var(--brand-ivory);
+  --sidebar-primary: var(--brand-gold-light);
+  --sidebar-primary-foreground: var(--brand-ink);
+  --sidebar-accent: #1c2118;
+  --sidebar-accent-foreground: var(--brand-ivory);
+  --sidebar-border: rgba(255, 255, 255, 0.1);
+  --sidebar-ring: var(--brand-gold-light);
+}
+
+@theme inline {
+  --color-brand-forest: var(--brand-forest);
+  --color-brand-forest-light: var(--brand-forest-light);
+  --color-brand-sage: var(--brand-sage);
+  --color-brand-gold: var(--brand-gold);
+  --color-brand-gold-light: var(--brand-gold-light);
+  --color-brand-ink: var(--brand-ink);
+  --color-brand-ivory: var(--brand-ivory);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --font-serif: var(--font-playfair);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --animate-orbit: orbit calc(var(--duration) * 1s) linear infinite;
+  --animate-shiny-text: shiny-text 8s infinite;
+  --animate-accordion-down: accordion-down 0.2s ease-out;
+  --animate-accordion-up: accordion-up 0.2s ease-out;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@keyframes orbit {
+  0% {
+    transform: rotate(0deg) translateY(calc(var(--radius) * 1px)) rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg) translateY(calc(var(--radius) * 1px)) rotate(-360deg);
+  }
+}
+
+@keyframes shiny-text {
+  0%,
+  90%,
+  100% {
+    background-position: calc(-100% - var(--shiny-width)) 0;
+  }
+  30%,
+  60% {
+    background-position: calc(100% + var(--shiny-width)) 0;
+  }
+}
+
+@keyframes accordion-down {
+  from {
+    height: 0;
+  }
+  to {
+    height: var(--radix-accordion-content-height);
+  }
+}
+
+@keyframes accordion-up {
+  from {
+    height: var(--radix-accordion-content-height);
+  }
+  to {
+    height: 0;
+  }
+}
