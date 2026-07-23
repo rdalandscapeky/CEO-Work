@@ -1,7 +1,15 @@
 "use client";
 
 import { useState } from "react";
-import { ChevronDown, Flower2, Snowflake, Sprout } from "lucide-react";
+import {
+  AppWindow,
+  ChevronDown,
+  Droplets,
+  Flower2,
+  Snowflake,
+  Sprout,
+  Trash2,
+} from "lucide-react";
 
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -13,7 +21,12 @@ const icons = {
   landscaping: Flower2,
   "lawn-maintenance": Sprout,
   "snow-removal": Snowflake,
+  "junk-removal": Trash2,
+  "pressure-washing": Droplets,
+  "window-cleaning": AppWindow,
 };
+
+const orbitColors = ["text-brand-forest", "text-brand-sage", "text-brand-gold"];
 
 function isSnowSeason() {
   const month = new Date().getMonth() + 1;
@@ -28,15 +41,19 @@ export function Services() {
     <section id="services" className="bg-background px-6 py-24">
       <div className="mx-auto max-w-6xl">
         <div className="relative mx-auto mb-16 flex h-40 max-w-md items-center justify-center">
-          <OrbitingCircles radius={70} duration={22}>
-            <Flower2 className="size-6 text-brand-forest" />
-          </OrbitingCircles>
-          <OrbitingCircles radius={70} duration={22} delay={7.3}>
-            <Sprout className="size-6 text-brand-sage" />
-          </OrbitingCircles>
-          <OrbitingCircles radius={70} duration={22} delay={14.6}>
-            <Snowflake className="size-6 text-brand-gold" />
-          </OrbitingCircles>
+          {services.map((service, i) => {
+            const Icon = icons[service.slug];
+            return (
+              <OrbitingCircles
+                key={service.slug}
+                radius={70}
+                duration={22}
+                delay={(22 / services.length) * i}
+              >
+                <Icon className={cn("size-6", orbitColors[i % orbitColors.length])} />
+              </OrbitingCircles>
+            );
+          })}
           <div className="flex size-16 items-center justify-center rounded-full bg-brand-ink font-serif text-lg font-semibold text-white">
             RDA
           </div>
@@ -47,11 +64,11 @@ export function Services() {
             What we do
           </h2>
           <p className="mt-3 text-muted-foreground">
-            Three lines of work, one crew you can count on.
+            One crew, every job your property needs.
           </p>
         </div>
 
-        <div className="grid gap-6 md:grid-cols-3">
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {services
             .slice()
             .sort((a, b) => {

@@ -2,7 +2,7 @@ export const siteConfig = {
   name: "RDA Landscape",
   legalName: "Ryland Adams Landscaping",
   owner: "Ryland Adams",
-  tagline: "Landscaping, Lawn Maintenance & Snow Removal",
+  tagline: "Landscaping, Lawn Care & Exterior Property Services",
   serviceArea: "Louisville, KY & surrounding counties",
   city: "Louisville",
   state: "KY",
@@ -56,6 +56,44 @@ export const services = [
       "Per-storm on-call service",
     ],
     seasonal: { prominentMonths: [11, 12, 1, 2, 3] },
+  },
+  {
+    slug: "junk-removal",
+    name: "Junk Removal",
+    summary: "Old furniture, yard debris, and clutter — hauled away fast.",
+    offerings: [
+      "Furniture & appliance removal",
+      "Yard waste & brush hauling",
+      "Garage & basement cleanouts",
+      "Construction debris removal",
+      "Single-item pickups",
+    ],
+    seasonal: null,
+  },
+  {
+    slug: "pressure-washing",
+    name: "Pressure Washing",
+    summary: "Driveways, siding, and decks — back to like-new.",
+    offerings: [
+      "Driveway & walkway washing",
+      "House siding washing",
+      "Deck & patio washing",
+      "Fence washing",
+      "Gutter exterior brightening",
+    ],
+    seasonal: null,
+  },
+  {
+    slug: "window-cleaning",
+    name: "Window Cleaning",
+    summary: "Streak-free windows, inside and out.",
+    offerings: [
+      "Interior & exterior window washing",
+      "Screen cleaning",
+      "Track & sill detailing",
+      "Storefront/commercial glass",
+    ],
+    seasonal: null,
   },
 ] as const;
 

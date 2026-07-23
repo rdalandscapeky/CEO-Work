@@ -33,8 +33,9 @@ export function Hero() {
           transition={{ duration: 0.7, delay: 0.2 }}
           className="max-w-xl text-lg text-white/70"
         >
-          Landscaping, lawn maintenance, and snow removal for homeowners who
-          want it handled right the first time.
+          Landscaping, lawn care, snow removal, junk removal, pressure
+          washing, and window cleaning — one crew, handled right the first
+          time.
         </motion.p>
         <motion.div
           initial={{ opacity: 0, y: 14 }}

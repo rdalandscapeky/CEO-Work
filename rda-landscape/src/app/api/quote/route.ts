@@ -33,6 +33,18 @@ const EstimateSchema = z.object({
     .describe("Estimated mulch needed in cubic yards for visible beds, or null"),
   drivewaySquareFootage: z.number().nullable().describe("Estimated driveway area in square feet, or null"),
   walkwaySquareFootage: z.number().nullable().describe("Estimated walkway/sidewalk area in square feet, or null"),
+  sidingSquareFootage: z
+    .number()
+    .nullable()
+    .describe("Estimated exterior house siding area in square feet, or null"),
+  junkVolumeCubicYards: z
+    .number()
+    .nullable()
+    .describe("Estimated volume of items/debris to be removed in cubic yards, or null"),
+  windowCount: z
+    .number()
+    .nullable()
+    .describe("Estimated number of exterior windows visible, or null"),
   accessDifficulty: z
     .enum(["easy", "moderate", "difficult"])
     .describe("Overall access difficulty for equipment/crew based on slope, obstacles, and clearance"),
@@ -143,7 +155,7 @@ export async function POST(request: NextRequest) {
           ...imageBlocks,
           {
             type: "text",
-            text: `These are photos of a residential property for a landscaping quote. The customer selected these services: ${services.join(", ")}. Estimate only the measurements relevant to those services from what's visible in the photos — leave irrelevant fields null rather than guessing wildly. Be conservative and note uncertainty in "notes".`,
+            text: `These are photos of a residential property for a property-services quote (landscaping, lawn care, snow removal, junk removal, pressure washing, and/or window cleaning). The customer selected these services: ${services.join(", ")}. Estimate only the measurements relevant to those services from what's visible in the photos — leave irrelevant fields null rather than guessing wildly. Be conservative and note uncertainty in "notes".`,
           },
         ],
       },
@@ -166,6 +178,9 @@ export async function POST(request: NextRequest) {
     mulchCubicYards: measurements.mulchCubicYards,
     drivewaySquareFootage: measurements.drivewaySquareFootage,
     walkwaySquareFootage: measurements.walkwaySquareFootage,
+    sidingSquareFootage: measurements.sidingSquareFootage,
+    junkVolumeCubicYards: measurements.junkVolumeCubicYards,
+    windowCount: measurements.windowCount,
     accessDifficulty: measurements.accessDifficulty as AccessDifficulty,
   });
 

@@ -18,6 +18,18 @@ export const PRICING = {
     perSqFt: 0.08,
     minimum: 60,
   },
+  junkRemoval: {
+    perCubicYard: 45,
+    minimum: 125,
+  },
+  pressureWashing: {
+    perSqFt: 0.22,
+    minimum: 150,
+  },
+  windowCleaning: {
+    perWindow: 8,
+    minimum: 100,
+  },
   accessMultiplier: {
     easy: 1,
     moderate: 1.15,
@@ -34,6 +46,9 @@ export interface QuoteInputs {
   mulchCubicYards: number | null;
   drivewaySquareFootage: number | null;
   walkwaySquareFootage: number | null;
+  sidingSquareFootage: number | null;
+  junkVolumeCubicYards: number | null;
+  windowCount: number | null;
   accessDifficulty: AccessDifficulty;
 }
 
@@ -83,6 +98,28 @@ export function calculateEstimate(inputs: QuoteInputs): QuoteEstimate {
     const base = totalSqFt * PRICING.snowRemoval.perSqFt;
     const [low, high] = range(base, PRICING.snowRemoval.minimum, multiplier);
     breakdown.push({ service: "Snow Removal", low, high });
+  }
+
+  if (inputs.services.includes("junk-removal")) {
+    const base = (inputs.junkVolumeCubicYards ?? 0) * PRICING.junkRemoval.perCubicYard;
+    const [low, high] = range(base, PRICING.junkRemoval.minimum, multiplier);
+    breakdown.push({ service: "Junk Removal", low, high });
+  }
+
+  if (inputs.services.includes("pressure-washing")) {
+    const totalSqFt =
+      (inputs.drivewaySquareFootage ?? 0) +
+      (inputs.walkwaySquareFootage ?? 0) +
+      (inputs.sidingSquareFootage ?? 0);
+    const base = totalSqFt * PRICING.pressureWashing.perSqFt;
+    const [low, high] = range(base, PRICING.pressureWashing.minimum, multiplier);
+    breakdown.push({ service: "Pressure Washing", low, high });
+  }
+
+  if (inputs.services.includes("window-cleaning")) {
+    const base = (inputs.windowCount ?? 0) * PRICING.windowCleaning.perWindow;
+    const [low, high] = range(base, PRICING.windowCleaning.minimum, multiplier);
+    breakdown.push({ service: "Window Cleaning", low, high });
   }
 
   const low = breakdown.reduce((sum, b) => sum + b.low, 0);
