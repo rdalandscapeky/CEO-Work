@@ -17,10 +17,10 @@ export function Hero() {
           transition={{ duration: 0.6 }}
           className="max-w-lg font-serif text-base italic text-white/60"
         >
-          &ldquo;Whatsoever thy hand findeth to do, do it with thy
+          &ldquo;Whatever your hand finds to do, do it with all your
           might.&rdquo;{" "}
           <span className="text-brand-gold-light not-italic">
-            — Ecclesiastes 9:10
+            — Ecclesiastes 9:10 (NIV)
           </span>
         </motion.p>
         <motion.p
