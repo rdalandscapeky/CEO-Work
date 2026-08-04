@@ -145,10 +145,6 @@ export function Services() {
               );
             })}
         </div>
-        <p className="mt-6 text-center text-xs text-muted-foreground">
-          [NEEDED FROM RYLAND] Offerings above are a starting draft — confirm
-          or edit the exact list for each service line.
-        </p>
       </div>
     </section>
   );
