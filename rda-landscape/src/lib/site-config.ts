@@ -19,7 +19,7 @@ export const services = [
   {
     slug: "landscaping",
     name: "Landscaping",
-    summary: "Design, beds, mulch, and hardscaping that hold up all year.",
+    summary: "Design, beds, mulch, and hardscaping that hold up.",
     offerings: [
       "Garden bed design & installation",
       "Mulching & edging",
