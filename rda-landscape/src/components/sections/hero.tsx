@@ -42,9 +42,11 @@ export function Hero() {
           transition={{ duration: 0.6, delay: 0.25 }}
           className="max-w-lg text-base text-white/60"
         >
-          &ldquo;Whatsoever thy hand findeth to do, do it with thy
+          &ldquo;Whatever your hand finds to do, do it with all your
           might.&rdquo;{" "}
-          <span className="text-brand-gold-light">— Ecclesiastes 9:10</span>
+          <span className="text-brand-gold-light">
+            — Ecclesiastes 9:10 (NIV)
+          </span>
         </motion.p>
         <motion.div
           initial={{ opacity: 0, y: 14 }}
