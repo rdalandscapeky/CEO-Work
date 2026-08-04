@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Form definitions</title>
+  </head>
+  <body>
+    <!--
+      Static form definition for @netlify/plugin-nextjs@5's forms
+      migration (https://ntl.fyi/next-runtime-forms-migration). The
+      runtime no longer scans server-rendered HTML for Netlify Forms,
+      so this plain file — copied as-is from public/ into the deploy —
+      is what registers the "quote-request" form. Field list mirrors
+      NetlifyFormDetector (src/components/netlify-form-detector.tsx),
+      which is what quote-tool.tsx actually submits to.
+    -->
+    <form name="quote-request" data-netlify="true" netlify-honeypot="bot-field" hidden>
+      <input type="text" name="bot-field" />
+      <input type="text" name="name" />
+      <input type="email" name="email" />
+      <input type="tel" name="phone" />
+      <input type="text" name="services" />
+      <input type="text" name="estimate" />
+      <input type="text" name="ai_notes" />
+      <input type="file" name="photos" multiple />
+    </form>
+  </body>
+</html>
