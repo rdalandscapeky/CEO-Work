@@ -35,7 +35,7 @@ export function Gallery() {
             Before &amp; after
           </h2>
           <p className="mt-3 text-muted-foreground">
-            Real jobs from around {`Louisville`} — no stock photos.
+            Real jobs from around {`Louisville`}.
           </p>
         </div>
 
