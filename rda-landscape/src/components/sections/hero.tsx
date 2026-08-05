@@ -1,15 +1,23 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 
 import { Button } from "@/components/ui/button";
-import { HeroTerrain } from "@/components/three/hero-terrain";
 import { siteConfig } from "@/lib/site-config";
 
 export function Hero() {
   return (
     <section className="relative flex min-h-[90vh] flex-col items-center justify-center overflow-hidden bg-brand-ink px-6 py-32 text-center text-white">
-      <HeroTerrain />
+      <Image
+        src="/hero/lawn-stripes.jpg"
+        alt=""
+        fill
+        priority
+        sizes="100vw"
+        className="object-cover"
+      />
+      <div className="absolute inset-0 bg-gradient-to-b from-brand-ink/50 via-brand-ink/80 to-brand-ink" />
       <div className="relative z-10 flex flex-col items-center gap-6">
         <motion.p
           initial={{ opacity: 0, y: 10 }}
