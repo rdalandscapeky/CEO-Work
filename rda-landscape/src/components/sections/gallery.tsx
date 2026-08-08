@@ -77,11 +77,6 @@ export function Gallery() {
             ))}
           </div>
         )}
-
-        <p className="mt-6 text-center text-xs text-muted-foreground">
-          [NEEDED FROM RYLAND] Send real before/after job photos and they
-          drop straight into this grid.
-        </p>
       </div>
     </section>
   );
