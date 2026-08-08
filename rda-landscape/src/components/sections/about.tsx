@@ -24,10 +24,15 @@ export function About() {
             {siteConfig.owner}
           </h2>
           <p className="mt-4 text-muted-foreground">
-            I started RDA Landscape a few years ago to do good work for
-            neighbors. Now I&apos;m growing it into a landscape company that
-            takes on bigger jobs, but I still bring the same attention to
-            detail I did in the beginning.
+            I grew up in Louisville and go to Christian Academy. I started
+            this business at 13, going door to door with a hand-me-down push
+            mower — that turned into RDA Landscape, and I&apos;m still
+            building it into a bigger company today with the same attention
+            to detail I had back then. The Lord&apos;s given me some great
+            opportunities along the way, and I don&apos;t take that for
+            granted. Outside of work you&apos;ll find me at the lake, playing
+            lacrosse, working on guitar, or spending time with family,
+            friends, and my dog, Hendrix.
           </p>
         </div>
       </div>
