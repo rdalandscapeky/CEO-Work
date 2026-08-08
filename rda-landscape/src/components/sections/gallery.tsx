@@ -34,9 +34,6 @@ export function Gallery() {
           <h2 className="font-serif text-3xl font-semibold tracking-tight sm:text-4xl">
             Before &amp; after
           </h2>
-          <p className="mt-3 text-muted-foreground">
-            Real jobs from around {`Louisville`} — no stock photos.
-          </p>
         </div>
 
         {beforeAfterItems.length === 0 ? (
