@@ -7,15 +7,18 @@ export interface BeforeAfterItem {
   caption: string;
 }
 
-/**
- * [NEEDED FROM RYLAND] Real before/after job photos. This array is empty on
- * purpose — no stock imagery. Drop objects like
- * { before: "/gallery/job-1-before.jpg", after: "/gallery/job-1-after.jpg",
- *   caption: "Front bed renovation — Prospect, KY" }
- * into this list (or wire it up to a CMS later) and the grid below fills in
- * automatically.
- */
-export const beforeAfterItems: BeforeAfterItem[] = [];
+export const beforeAfterItems: BeforeAfterItem[] = [
+  {
+    before: "/gallery/shrub-trim-before.jpg",
+    after: "/gallery/shrub-trim-after.jpg",
+    caption: "Shrub trimming & shaping",
+  },
+  {
+    before: "/gallery/mulch-bed-before.jpg",
+    after: "/gallery/mulch-bed-after.jpg",
+    caption: "Utility bed cleanup & mulching",
+  },
+];
 
 function PlaceholderSlot({ label }: { label: string }) {
   return (
