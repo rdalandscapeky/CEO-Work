@@ -1,4 +1,4 @@
-import { UserRound } from "lucide-react";
+import Image from "next/image";
 
 import { siteConfig } from "@/lib/site-config";
 
@@ -6,13 +6,14 @@ export function About() {
   return (
     <section id="about" className="bg-background px-6 py-24">
       <div className="mx-auto grid max-w-6xl items-center gap-12 md:grid-cols-2">
-        <div className="flex aspect-square w-full max-w-md items-center justify-center rounded-2xl border border-dashed border-border bg-muted text-muted-foreground md:mx-0">
-          <div className="flex flex-col items-center gap-2">
-            <UserRound className="size-10" />
-            <span className="text-xs font-medium">
-              [NEEDED FROM RYLAND] Photo of {siteConfig.owner}
-            </span>
-          </div>
+        <div className="relative aspect-square w-full max-w-md overflow-hidden rounded-2xl border border-border md:mx-0">
+          <Image
+            src="/images/ryland-owner.jpeg"
+            alt={siteConfig.owner}
+            fill
+            className="object-cover"
+            priority
+          />
         </div>
 
         <div>
