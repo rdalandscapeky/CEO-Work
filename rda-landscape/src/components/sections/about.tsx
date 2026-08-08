@@ -24,11 +24,10 @@ export function About() {
             {siteConfig.owner}
           </h2>
           <p className="mt-4 text-muted-foreground">
-            [NEEDED FROM RYLAND] A short story goes here — how RDA Landscape
-            got started, how long you&apos;ve been serving{" "}
-            {siteConfig.serviceArea}, and what you want customers to know
-            about how you run a job. A few sentences in your own words reads
-            better than anything written for you.
+            I started RDA Landscape a few years ago to do good work for
+            neighbors. Now I&apos;m growing it into a landscape company that
+            takes on bigger jobs, but I still bring the same attention to
+            detail I did in the beginning.
           </p>
         </div>
       </div>
