@@ -11,7 +11,7 @@ export function About() {
             src="/images/ryland-owner.jpeg"
             alt={siteConfig.owner}
             fill
-            className="object-cover"
+            className="object-cover object-top"
             priority
           />
         </div>
