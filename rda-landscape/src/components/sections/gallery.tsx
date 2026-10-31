@@ -7,15 +7,18 @@ export interface BeforeAfterItem {
   caption: string;
 }
 
-/**
- * [NEEDED FROM RYLAND] Real before/after job photos. This array is empty on
- * purpose — no stock imagery. Drop objects like
- * { before: "/gallery/job-1-before.jpg", after: "/gallery/job-1-after.jpg",
- *   caption: "Front bed renovation — Prospect, KY" }
- * into this list (or wire it up to a CMS later) and the grid below fills in
- * automatically.
- */
-export const beforeAfterItems: BeforeAfterItem[] = [];
+export const beforeAfterItems: BeforeAfterItem[] = [
+  {
+    before: "/gallery/shrub-trim-before.jpg",
+    after: "/gallery/shrub-trim-after.jpg",
+    caption: "Shrub trimming & shaping",
+  },
+  {
+    before: "/gallery/mulch-bed-before.jpg",
+    after: "/gallery/mulch-bed-after.jpg",
+    caption: "Utility bed cleanup & mulching",
+  },
+];
 
 function PlaceholderSlot({ label }: { label: string }) {
   return (
@@ -34,9 +37,6 @@ export function Gallery() {
           <h2 className="font-serif text-3xl font-semibold tracking-tight sm:text-4xl">
             Before &amp; after
           </h2>
-          <p className="mt-3 text-muted-foreground">
-            Real jobs from around {`Louisville`}.
-          </p>
         </div>
 
         {beforeAfterItems.length === 0 ? (
@@ -80,11 +80,6 @@ export function Gallery() {
             ))}
           </div>
         )}
-
-        <p className="mt-6 text-center text-xs text-muted-foreground">
-          [NEEDED FROM RYLAND] Send real before/after job photos and they
-          drop straight into this grid.
-        </p>
       </div>
     </section>
   );

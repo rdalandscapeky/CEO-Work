@@ -1,4 +1,4 @@
-import { UserRound } from "lucide-react";
+import Image from "next/image";
 
 import { siteConfig } from "@/lib/site-config";
 
@@ -6,13 +6,14 @@ export function About() {
   return (
     <section id="about" className="bg-background px-6 py-24">
       <div className="mx-auto grid max-w-6xl items-center gap-12 md:grid-cols-2">
-        <div className="flex aspect-square w-full max-w-md items-center justify-center rounded-2xl border border-dashed border-border bg-muted text-muted-foreground md:mx-0">
-          <div className="flex flex-col items-center gap-2">
-            <UserRound className="size-10" />
-            <span className="text-xs font-medium">
-              [NEEDED FROM RYLAND] Photo of {siteConfig.owner}
-            </span>
-          </div>
+        <div className="relative aspect-square w-full max-w-md overflow-hidden rounded-2xl border border-border md:mx-0">
+          <Image
+            src="/images/ryland-owner.jpeg"
+            alt={siteConfig.owner}
+            fill
+            className="object-cover object-top"
+            priority
+          />
         </div>
 
         <div>
@@ -23,11 +24,15 @@ export function About() {
             {siteConfig.owner}
           </h2>
           <p className="mt-4 text-muted-foreground">
-            [NEEDED FROM RYLAND] A short story goes here — how RDA Landscape
-            got started, how long you&apos;ve been serving{" "}
-            {siteConfig.serviceArea}, and what you want customers to know
-            about how you run a job. A few sentences in your own words reads
-            better than anything written for you.
+            I grew up in Louisville and go to Christian Academy. I started
+            this business at 13, going door to door with a hand-me-down push
+            mower — that turned into RDA Landscape, and I&apos;m still
+            building it into a bigger company today with the same attention
+            to detail I had back then. The Lord&apos;s given me some great
+            opportunities along the way, and I don&apos;t take that for
+            granted. Outside of work you&apos;ll find me at the lake, playing
+            lacrosse, working on guitar, or spending time with family,
+            friends, and my dog, Hendrix.
           </p>
         </div>
       </div>
