@@ -24,12 +24,7 @@ const faqs = [
   {
     question: "Do you require a contract for lawn maintenance or snow removal?",
     answer:
-      "[NEEDED FROM RYLAND] Describe your actual terms — one-time visits vs. seasonal contracts, minimums, cancellation policy.",
-  },
-  {
-    question: "How much snow triggers a plow visit?",
-    answer:
-      "[NEEDED FROM RYLAND] State your trigger depth (e.g. 2\" of accumulation) and typical response time after a storm.",
+      "No — we don't require a contract for anything. Book what you need, when you need it.",
   },
   {
     question: "What payment methods do you accept?",
