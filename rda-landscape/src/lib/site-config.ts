@@ -3,7 +3,7 @@ export const siteConfig = {
   legalName: "Ryland Adams Landscaping",
   owner: "Ryland Adams",
   tagline: "Landscaping, Lawn Care & Exterior Property Services",
-  serviceArea: "Louisville, Kentucky",
+  serviceArea: "Louisville and surrounding areas",
   city: "Louisville",
   state: "KY",
   phone: "(502) 881-2021",
