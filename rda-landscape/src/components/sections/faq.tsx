@@ -28,8 +28,7 @@ const faqs = [
   },
   {
     question: "What payment methods do you accept?",
-    answer:
-      "[NEEDED FROM RYLAND] List accepted payment methods (cash, check, card, etc.).",
+    answer: "We accept cash, check, and online payment.",
   },
   {
     question: "Do you offer free estimates?",
