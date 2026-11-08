@@ -32,8 +32,7 @@ const faqs = [
   },
   {
     question: "Do you offer free estimates?",
-    answer:
-      "Yes — photo-based estimates through the instant quote tool are free, with no obligation. We'll confirm final pricing on-site.",
+    answer: "Yes, we offer free estimates.",
   },
 ];
 
