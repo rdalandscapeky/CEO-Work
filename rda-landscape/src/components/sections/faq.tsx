@@ -13,8 +13,7 @@ const faqs = [
   },
   {
     question: "How do I get a quote?",
-    answer:
-      "Use the instant quote tool above to upload a few photos and get an estimate range in minutes, or call/text us directly. Final pricing is always confirmed on-site before work starts.",
+    answer: `Just reach out — call or text us at ${siteConfig.phone} and we'll get you taken care of.`,
   },
   {
     question: "Are you licensed and insured?",
