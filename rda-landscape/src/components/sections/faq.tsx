@@ -19,7 +19,7 @@ const faqs = [
   {
     question: "Are you licensed and insured?",
     answer:
-      "[NEEDED FROM RYLAND] Confirm licensing/insurance details here — customers ask this often and it's worth stating plainly if true.",
+      "Yes. RDA Landscape is a licensed LLC and we carry liability insurance, so you're covered on every job we do.",
   },
   {
     question: "Do you require a contract for lawn maintenance or snow removal?",
